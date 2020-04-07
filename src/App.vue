@@ -1,27 +1,38 @@
 <template>
   <div id="app">
     <the-header></the-header>
-    <div class="d-flex flex-row">
-      <shop class="w-75"></shop>
-      <cart class="w-25"></cart>
+    <div class="d-flex flex-column w-100">
+      <component :is="page" ></component>
     </div>
   </div>
 </template>
 
 <script>
-import TheHeader from './components/TheHeader';
-import Shop from './components/Shop/Shop';
-import Cart from './components/Cart/Cart';
+import TheHeader from "./components/TheHeader";
+import User from "./components/features/User/User.vue";
+import Admin from "./components/features/Admin/Admin";
+import { eventBus } from './main';
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     TheHeader,
-    Cart,
-    Shop
+    User,
+    Admin
+  },
+  data() {
+    return{
+        page: eventBus.page
+    }
+  },
+  created(){
+    // on ecoute l'element 
+    eventBus.$on("update:page",(page) => {
+      this.page = page;
+    })
+
   }
-}
+};
 </script>
 <style>
-
 </style>

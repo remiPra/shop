@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import {eventBus} from '../../main';
+  import {eventBus} from '../../../../main';
 
   export default {
     //   on le fait passer en propriété  product pluto que data car dans le v-for c'est lui qui st appelé

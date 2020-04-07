@@ -28,23 +28,29 @@ export const eventBus = new Vue({
         price: 1500
       }
     ],
-    cart:[],
+    cart: [],
+    page: "User",
   },
-    methods: {
-      addProductToCart(product) {
-        if (!this.cart.find(e => e.id === product.id)) {
-          this.cart = [ ...this.cart, product ];
-          this.$emit('update:cart', this.cart);
-        }
-      },
-        removeItemFromCart(item) {
-          this.cart = this.cart.slice().filter(e => e.id !== item.id);
-          this.$emit('update:cart', this.cart);
-        }
-      
+  methods: {
+    addProductToCart(product) {
+      if (!this.cart.find(e => e.id === product.id)) {
+        this.cart = [...this.cart, product];
+        this.$emit('update:cart', this.cart);
+      }
     },
-    
-  
+    removeItemFromCart(item) {
+      this.cart = this.cart.slice().filter(e => e.id !== item.id);
+      this.$emit('update:cart', this.cart);
+    },
+    changePage(page) {
+      this.page = page;
+      //on emet this page 
+      this.$emit('update:page',this.page)
+    }
+
+  },
+
+
 });
 
 
