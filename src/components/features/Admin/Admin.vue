@@ -1,20 +1,22 @@
 <template>
- <div>
-     <admin-product-form></admin-product-form>
- </div>
+  <div class="d-flex flex-row justify-content-center p-5">
+    <admin-product-form class="w-50"></admin-product-form>
+  </div>
 </template>
 
+
+
+
+
 <script>
-import AdminProductForm from './AdminProductForm';
+import AdminProductForm from "./AdminProductForm";
 
 export default {
-    components:{
-        AdminProductForm
-    }
-    
-}
+  components: {
+    AdminProductForm
+  }
+};
 </script>
 
 <style>
-
 </style>
